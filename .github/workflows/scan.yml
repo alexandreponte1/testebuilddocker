@@ -17,7 +17,7 @@ jobs:
               scan-type: image
               # format: 'json'
               format: 'table'
-              exit-code: 0
+              exit-code: 1
               # output: 'resultado-trivy.json'
               severity: UNKNOWN,CRITICAL,HIGH,MEDIUM,LOW
           
