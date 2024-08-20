@@ -1,0 +1,57 @@
+name: CI
+on:
+  push: 
+  workflow_dispatch: 
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v4
+          
+          - name: Login no Docker Hub
+            uses: docker/login-action@v3
+            with:
+              username: ${{ secrets.DOCKERHUB_USERNAME }}
+              password: ${{ secrets.DOCKERHUB_TOKEN }}
+              
+          # - name: Build and push
+          #   uses: docker/build-push-action@v5
+          #   with:
+          #       push: true
+          #       context: ./src
+          #       file: ./Dockerfile
+          #       tags: | 
+          #           alexandreponte/apache-no-ar:${{ github.run_number }}
+          #           alexandreponte/apache-no-ar:latest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: Docker Image CI
+
+# on:
+#   push:
+#     branches: [ "main" ]
+#   pull_request:
+#     branches: [ "main" ]
+
+# jobs:
+
+#   build:
+
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - uses: actions/checkout@v4
+#     - name: Build the Docker image
+#       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
