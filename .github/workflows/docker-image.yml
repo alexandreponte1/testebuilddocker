@@ -25,7 +25,12 @@ jobs:
                     alexandreponte/apache-no-ar:latest
 
 
-
+    scan:
+      name: Scan da Imagem
+      needs: [build]
+      uses: alexandreponte1/testebuilddocker/.github/workflows/scan.yml@main
+      with:
+        docker_image: alexandreponte/apache-no-ar:${{ github.run_number }}
 
 
 
