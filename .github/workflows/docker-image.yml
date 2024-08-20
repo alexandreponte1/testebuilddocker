@@ -14,15 +14,15 @@ jobs:
               username: ${{ secrets.DOCKERHUB_USERNAME }}
               password: ${{ secrets.DOCKERHUB_TOKEN }}
               
-          # - name: Build and push
-          #   uses: docker/build-push-action@v5
-          #   with:
-          #       push: true
-          #       context: ./src
-          #       file: ./Dockerfile
-          #       tags: | 
-          #           alexandreponte/apache-no-ar:${{ github.run_number }}
-          #           alexandreponte/apache-no-ar:latest
+          - name: Build and push
+            uses: docker/build-push-action@v5
+            with:
+                push: true
+                # context: ./src
+                # file: ./Dockerfile
+                tags: | 
+                    alexandreponte/apache-no-ar:${{ github.run_number }}
+                    alexandreponte/apache-no-ar:latest
 
 
 
